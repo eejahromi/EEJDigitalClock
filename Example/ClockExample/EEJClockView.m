@@ -12,6 +12,10 @@
 @property (strong, nonatomic) NSTimer *timer;
 @end
 @implementation EEJClockView
+// TODO: Custom font
+// TODO: AM/PM
+// TODO: Label movement
+// TODO: Orientation
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -31,9 +35,29 @@
 
 - (void)updateTime {
     
+    NSString *hour, *minute, *second;
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone localTimeZone] fromDate:[NSDate date]];
-    _label.text = [NSString stringWithFormat:@"%ld : %ld : %ld",dateComponents.hour,dateComponents.minute,dateComponents.second];
+    
+    if(dateComponents.second < 10) {
+        second = [NSString stringWithFormat:@"0%ld",(long)dateComponents.second];
+    } else {
+        second = [NSString stringWithFormat:@"%ld",(long)dateComponents.second];
+    }
+    
+    if(dateComponents.minute < 10) {
+        minute = [NSString stringWithFormat:@"0%ld",(long)dateComponents.minute];
+    } else {
+        minute = [NSString stringWithFormat:@"%ld",(long)dateComponents.minute];
+    }
+    
+    if(dateComponents.hour < 10) {
+        hour = [NSString stringWithFormat:@"0%ld",(long)dateComponents.hour];
+    } else {
+        hour = [NSString stringWithFormat:@"%ld",(long)dateComponents.hour];
+    }
+    
+    _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
 }
 
 @end
