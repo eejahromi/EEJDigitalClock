@@ -9,6 +9,7 @@
 #import "EEJClockView.h"
 @interface EEJClockView()
 @property (strong, nonatomic) UILabel *label;
+@property (strong, nonatomic) NSTimer *timer;
 @end
 @implementation EEJClockView
 
@@ -19,12 +20,20 @@
         _label.textColor = [UIColor blackColor];
         _label.textAlignment = NSTextAlignmentCenter;
         _label.font = [UIFont fontWithName:@"Noteworthy" size:32.0];
-        _label.text = @"20 : 23 : 37";
+        
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
         
         [self addSubview:_label];
     }
     
     return self;
+}
+
+- (void)updateTime {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone localTimeZone] fromDate:[NSDate date]];
+    _label.text = [NSString stringWithFormat:@"%ld : %ld : %ld",dateComponents.hour,dateComponents.minute,dateComponents.second];
 }
 
 @end
