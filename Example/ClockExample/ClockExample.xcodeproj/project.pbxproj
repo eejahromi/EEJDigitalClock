@@ -13,6 +13,7 @@
 		B20FA14A1CEEC2E4003973E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20FA1481CEEC2E4003973E7 /* Main.storyboard */; };
 		B20FA14C1CEEC2E4003973E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B20FA14B1CEEC2E4003973E7 /* Assets.xcassets */; };
 		B20FA14F1CEEC2E4003973E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B20FA14D1CEEC2E4003973E7 /* LaunchScreen.storyboard */; };
+		B20FA1581CEEC39C003973E7 /* EEJClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = B20FA1571CEEC39C003973E7 /* EEJClockView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		B20FA14B1CEEC2E4003973E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B20FA14E1CEEC2E4003973E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B20FA1501CEEC2E4003973E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B20FA1561CEEC39C003973E7 /* EEJClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EEJClockView.h; sourceTree = "<group>"; };
+		B20FA1571CEEC39C003973E7 /* EEJClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EEJClockView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				B20FA14D1CEEC2E4003973E7 /* LaunchScreen.storyboard */,
 				B20FA1501CEEC2E4003973E7 /* Info.plist */,
 				B20FA13F1CEEC2E4003973E7 /* Supporting Files */,
+				B20FA1561CEEC39C003973E7 /* EEJClockView.h */,
+				B20FA1571CEEC39C003973E7 /* EEJClockView.m */,
 			);
 			path = ClockExample;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B20FA1581CEEC39C003973E7 /* EEJClockView.m in Sources */,
 				B20FA1471CEEC2E4003973E7 /* ViewController.m in Sources */,
 				B20FA1441CEEC2E4003973E7 /* AppDelegate.m in Sources */,
 				B20FA1411CEEC2E4003973E7 /* main.m in Sources */,
