@@ -65,13 +65,13 @@
 				B20FA1431CEEC2E4003973E7 /* AppDelegate.m */,
 				B20FA1451CEEC2E4003973E7 /* ViewController.h */,
 				B20FA1461CEEC2E4003973E7 /* ViewController.m */,
+				B20FA1561CEEC39C003973E7 /* EEJClockView.h */,
+				B20FA1571CEEC39C003973E7 /* EEJClockView.m */,
 				B20FA1481CEEC2E4003973E7 /* Main.storyboard */,
 				B20FA14B1CEEC2E4003973E7 /* Assets.xcassets */,
 				B20FA14D1CEEC2E4003973E7 /* LaunchScreen.storyboard */,
 				B20FA1501CEEC2E4003973E7 /* Info.plist */,
 				B20FA13F1CEEC2E4003973E7 /* Supporting Files */,
-				B20FA1561CEEC39C003973E7 /* EEJClockView.h */,
-				B20FA1571CEEC39C003973E7 /* EEJClockView.m */,
 			);
 			path = ClockExample;
 			sourceTree = "<group>";
