@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "EEJClockView.h"
+#import "EEJDigitalClock.h"
 
 @interface ViewController ()
 
@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    EEJClockView *clock = [[EEJClockView alloc] initWithFrame:self.view.bounds];
+    EEJDigitalClock *clock = [[EEJClockView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:clock];
 }
 

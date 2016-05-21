@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EEJClockView : UIView
+@interface EEJDigitalClock : UIView
 
 @end

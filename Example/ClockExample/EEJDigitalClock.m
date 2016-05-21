@@ -6,14 +6,14 @@
 //  Copyright © 2016 Ehsan Jahromi. All rights reserved.
 //
 
-#import "EEJClockView.h"
+#import "EEJDigitalClock.h"
 @import CoreText;
 
-@interface EEJClockView()
+@interface EEJDigitalClock()
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) NSTimer *timer;
 @end
-@implementation EEJClockView
+@implementation EEJDigitalClock
 // TODO: Name change to digital
 // TODO: Custom font
 // TODO: Custom text color
