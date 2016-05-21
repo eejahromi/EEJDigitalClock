@@ -7,12 +7,16 @@
 //
 
 #import "EEJClockView.h"
+@import CoreText;
+
 @interface EEJClockView()
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) NSTimer *timer;
 @end
 @implementation EEJClockView
+// TODO: Name change to digital
 // TODO: Custom font
+// TODO: Custom text color
 // TODO: AM/PM
 // TODO: Label movement
 // TODO: Orientation
@@ -23,8 +27,8 @@
         _label = [[UILabel alloc] initWithFrame:CGRectMake(0.0, frame.size.width/2.0, frame.size.width, 200.0)];
         _label.textColor = [UIColor blackColor];
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.font = [UIFont fontWithName:@"Noteworthy" size:32.0];
-        
+        _label.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:32.0];
+      
         _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
         
         [self addSubview:_label];
