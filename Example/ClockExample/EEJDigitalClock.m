@@ -14,9 +14,7 @@
 @property (strong, nonatomic) NSTimer *timer;
 @end
 @implementation EEJDigitalClock
-// TODO: Name change to digital
 // TODO: Custom font
-// TODO: Custom text color
 // TODO: AM/PM
 // TODO: Label movement
 // TODO: Orientation
@@ -62,6 +60,12 @@
     }
     
     _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
+}
+
+#pragma mark - Configurations
+
+- (void)setTextColor:(UIColor *)textColor {
+    _label.textColor = textColor;
 }
 
 @end

@@ -10,4 +10,9 @@
 
 @interface EEJDigitalClock : UIView
 
+/**
+ *  Color of the time label.
+ */
+@property (strong, nonatomic) UIColor *textColor;
+
 @end

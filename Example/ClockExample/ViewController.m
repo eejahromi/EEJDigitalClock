@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    EEJDigitalClock *clock = [[EEJClockView alloc] initWithFrame:self.view.bounds];
+    EEJDigitalClock *clock = [[EEJDigitalClock alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:clock];
 }
 
