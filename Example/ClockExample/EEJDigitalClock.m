@@ -20,11 +20,9 @@
     NSString *hour, *minute, *second;
     BOOL even;
 }
-// TODO: Custom font
 // TODO: AM/PM
 // TODO: Label movement
 // TODO: Orientation
-// TODO: Read-only time read
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -97,6 +95,14 @@
 
 - (void)setTextColor:(UIColor *)textColor {
     _label.textColor = textColor;
+}
+
+- (void)setCustomFont:(NSString *)customFont {
+    _label.font = [UIFont fontWithName:customFont size:32.0];
+}
+
+- (void)fontWithName:(NSString *)fontName andSize:(CGFloat)size {
+    _label.font = [UIFont fontWithName:fontName size:size];
 }
 
 - (NSString *)hour {

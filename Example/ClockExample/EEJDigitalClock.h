@@ -16,6 +16,11 @@
 @property (strong, nonatomic) UIColor *textColor;
 
 /**
+ *  Custom font for the clock
+ */
+@property (strong, nonatomic) NSString *customFont;
+
+/**
  *  Hour on the clock at the moment
  */
 @property (strong, nonatomic, readonly) NSString *hour;
@@ -29,5 +34,10 @@
  *  Second on the clock at the moment
  */
 @property (strong, nonatomic, readonly) NSString *second;
+
+/**
+ *  Custom font and size for the clock
+ */
+- (void)fontWithName:(NSString *)fontName andSize:(CGFloat)size;
 
 @end
