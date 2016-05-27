@@ -17,6 +17,7 @@
 @end
 @implementation EEJDigitalClock {
     CGRect viewFrame;
+    NSString *hour, *minute, *second;
     BOOL even;
 }
 // TODO: Custom font
@@ -67,7 +68,7 @@
     
     even = !even;
     
-    NSString *hour, *minute, *second;
+    
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone localTimeZone] fromDate:[NSDate date]];
     
@@ -96,6 +97,18 @@
 
 - (void)setTextColor:(UIColor *)textColor {
     _label.textColor = textColor;
+}
+
+- (NSString *)hour {
+    return hour;
+}
+
+- (NSString *)minute {
+    return minute;
+}
+
+- (NSString *)second {
+    return second;
 }
 
 @end
