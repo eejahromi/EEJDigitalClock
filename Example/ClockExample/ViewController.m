@@ -21,6 +21,7 @@
     
     self.clock = [[EEJDigitalClock alloc] initWithFrame:self.view.bounds];
     self.clock.customFont = @"Noteworthy";
+    self.clock.clockMode = EEJDigitalClockTwentyFourHourMode;
     [self.view addSubview:self.clock];
     [self.view addSubview:self.button];
 }
@@ -30,6 +31,11 @@
     
 }
 - (IBAction)logStats:(UIButton *)sender {
+    if([self.clock.hour intValue] < 12) {
+        
+    }
+    NSLog(@"%d",[self.clock.hour intValue] % 12);
+    
     NSLog(@"%@ %@ %@",self.clock.hour,self.clock.minute,self.clock.second);
 }
 

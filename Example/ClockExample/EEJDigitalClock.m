@@ -18,6 +18,7 @@
 @implementation EEJDigitalClock {
     CGRect viewFrame;
     NSString *hour, *minute, *second;
+    NSString *mode;
     BOOL even;
 }
 // TODO: AM/PM
@@ -70,6 +71,26 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComponents = [calendar componentsInTimeZone:[NSTimeZone localTimeZone] fromDate:[NSDate date]];
     
+    switch (self.clockMode) {
+        case EEJDigitalClockTwentyFourHourMode:
+                hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+            break;
+        
+        case EEJDigitalClockTwelveHourMode:
+            if(dateComponents.hour > 12) {
+                hour = [NSString stringWithFormat:@"%ld",(dateComponents.hour - 12)];
+                mode = @"PM";
+            } else {
+                hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+                mode = @"AM";
+            }
+            break;
+        
+        default:
+            break;
+    }
+    
+    
     if(dateComponents.second < 10) {
         second = [NSString stringWithFormat:@"0%ld",(long)dateComponents.second];
     } else {
@@ -83,12 +104,17 @@
     }
     
     if(dateComponents.hour < 10) {
-        hour = [NSString stringWithFormat:@"0%ld",(long)dateComponents.hour];
+        hour = [NSString stringWithFormat:@"0%@",hour];
     } else {
-        hour = [NSString stringWithFormat:@"%ld",(long)dateComponents.hour];
+        hour = [NSString stringWithFormat:@"%@",hour];
     }
     
-    _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
+    if(self.clockMode == EEJDigitalClockTwelveHourMode) {
+        _label.text = [NSString stringWithFormat:@"%@ : %@ : %@ %@", hour, minute, second,mode];
+    } else {
+        _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
+    }
+    
 }
 
 #pragma mark - Configurations

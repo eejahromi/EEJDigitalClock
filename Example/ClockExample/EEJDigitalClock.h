@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger,EEJDigitalClockMode) {
+    EEJDigitalClockTwentyFourHourMode = 0,
+    EEJDigitalClockTwelveHourMode
+};
+
 @interface EEJDigitalClock : UIView
 
 /**
@@ -34,6 +39,11 @@
  *  Second on the clock at the moment
  */
 @property (strong, nonatomic, readonly) NSString *second;
+
+/**
+ *  Digital Clock mode
+ */
+@property (assign, nonatomic) enum EEJDigitalClockMode clockMode;
 
 /**
  *  Custom font and size for the clock
