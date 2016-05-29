@@ -21,7 +21,7 @@
     
     self.clock = [[EEJDigitalClock alloc] initWithFrame:self.view.bounds];
     self.clock.customFont = @"Noteworthy";
-    self.clock.clockMode = EEJDigitalClockTwelveHourMode;
+    self.clock.clockMode = EEJDigitalClockTwentyFourHourMode;
     [self.view addSubview:self.clock];
     [self.view addSubview:self.button];
 }

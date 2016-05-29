@@ -7,7 +7,6 @@
 //
 
 #import "EEJDigitalClock.h"
-@import CoreText;
 
 @interface EEJDigitalClock()
 @property (strong, nonatomic) UILabel *label;
@@ -21,7 +20,6 @@
     NSString *mode;
     BOOL even;
 }
-// TODO: AM/PM refactoring
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -49,6 +47,8 @@
     return self;
 }
 
+#pragma mark - Time Update
+
 - (void)updateTime {
     
     if(even) {
@@ -71,7 +71,9 @@
     
     switch (self.clockMode) {
         case EEJDigitalClockTwentyFourHourMode:
-                hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+            hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+            [self formatCurrentTimeWithHour:hour minute:dateComponents.minute second:dateComponents.second];
+            
             break;
         
         case EEJDigitalClockTwelveHourMode:
@@ -82,26 +84,33 @@
                 hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
                 mode = @"AM";
             }
+            
+            [self formatCurrentTimeWithHour:hour minute:dateComponents.minute second:dateComponents.second];
+            
             break;
         
         default:
             break;
     }
     
-    
-    if(dateComponents.second < 10) {
-        second = [NSString stringWithFormat:@"0%ld",(long)dateComponents.second];
+}
+
+#pragma mark - Time Format
+
+- (void)formatCurrentTimeWithHour:(NSString *)formatHour minute:(NSInteger)formatMinute second:(NSInteger)formatSecond {
+    if(formatSecond < 10) {
+        second = [NSString stringWithFormat:@"0%ld",(long)formatSecond];
     } else {
-        second = [NSString stringWithFormat:@"%ld",(long)dateComponents.second];
+        second = [NSString stringWithFormat:@"%ld",(long)formatSecond];
     }
     
-    if(dateComponents.minute < 10) {
-        minute = [NSString stringWithFormat:@"0%ld",(long)dateComponents.minute];
+    if(formatMinute < 10) {
+        minute = [NSString stringWithFormat:@"0%ld",(long)formatMinute];
     } else {
-        minute = [NSString stringWithFormat:@"%ld",(long)dateComponents.minute];
+        minute = [NSString stringWithFormat:@"%ld",(long)formatMinute];
     }
     
-    if(dateComponents.hour < 10) {
+    if([formatHour intValue] < 10) {
         hour = [NSString stringWithFormat:@"0%@",hour];
     } else {
         hour = [NSString stringWithFormat:@"%@",hour];
@@ -112,8 +121,9 @@
     } else {
         _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
     }
-    
 }
+
+#pragma mark - Orientation
 
 - (void)layoutSubviews {
     [super layoutSubviews];
