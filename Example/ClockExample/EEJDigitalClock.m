@@ -21,9 +21,7 @@
     NSString *mode;
     BOOL even;
 }
-// TODO: AM/PM
-// TODO: Label movement
-// TODO: Orientation
+// TODO: AM/PM refactoring
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -115,6 +113,13 @@
         _label.text = [NSString stringWithFormat:@"%@ : %@ : %@", hour, minute, second];
     }
     
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.frame = CGRectMake(self.window.bounds.origin.x,self.window.bounds.origin.y,
+                            self.window.bounds.size.width, self.window.bounds.size.height);
+    _label.center = CGPointMake(self.bounds.size.width/2.0, self.bounds.size.height/2.0);
 }
 
 #pragma mark - Configurations
