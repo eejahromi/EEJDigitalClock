@@ -46,7 +46,7 @@
     
     switch (self.clockMode) {
         case EEJDigitalClockTwentyFourHourMode:
-            hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+            hour = [NSString stringWithFormat:@"%ld",(long)dateComponents.hour];
             [self formatCurrentTimeWithHour:hour minute:dateComponents.minute second:dateComponents.second];
             
             break;
@@ -56,7 +56,7 @@
                 hour = [NSString stringWithFormat:@"%ld",(dateComponents.hour - 12)];
                 mode = @"PM";
             } else {
-                hour = [NSString stringWithFormat:@"%ld",dateComponents.hour];
+                hour = [NSString stringWithFormat:@"%ld",(long)dateComponents.hour];
                 mode = @"AM";
             }
             
